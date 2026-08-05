@@ -9,15 +9,21 @@ export function useDrupalContent({ contentType, uuid, limit = 10, filters = {}, 
   const [error, setError] = useState(null);
 
   // Serialize complex objects for safe dependency tracking to prevent infinite loops
-  const filtersString = JSON.stringify(filters);
-  const includeString = JSON.stringify(include);
+  const filtersString = JSON.stringify(filters || {});
+  const includeString = JSON.stringify(include || []);
 
   useEffect(() => {
     if (!contentType) return;
     setLoading(true);
     setError(null);
 
-    fetchDrupalContent({ contentType, uuid, limit, filters, include })
+    fetchDrupalContent({
+      contentType,
+      uuid,
+      limit,
+      filters: JSON.parse(filtersString),
+      include: JSON.parse(includeString)
+    })
       .then((json) => {
         const raw = Array.isArray(json.data) ? json.data : [json.data];
         setData(raw.filter(Boolean));  // raw Drupal nodes, no mapping here
