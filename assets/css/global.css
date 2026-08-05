@@ -1,0 +1,376 @@
+/* Global design system */
+:root {
+  /* Color palette */
+  --color-navy: #1b2537;
+  --color-primary: #1b2537;
+  --color-blue: #0798c9;
+  --color-accent: #0798c9;
+  --color-accent-hover: #087da5;
+  --color-heading: #333333;
+  --color-text: #7a7a7a;
+  --color-text-muted: #9a9a9a;
+  --color-background: #ffffff;
+  --color-background-light: #f4f4f4;
+  --color-border: #e3e3e3;
+  --color-white: #ffffff;
+  --color-overlay: rgba(19, 37, 49, 0.42);
+
+  /* Typography */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1.03rem + 0.42vw, 1.375rem);
+  --font-size-section-title: clamp(1.75rem, 1.35rem + 1.7vw, 3rem);
+  --font-size-hero: clamp(2.5rem, 1.65rem + 3.6vw, 5rem);
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.12;
+  --line-height-heading: 1.2;
+  --line-height-body: 1.7;
+  --letter-spacing-normal: 0;
+  --letter-spacing-label: 0.08em;
+  --letter-spacing-wide: 0.12em;
+
+  /* Component typography */
+  --type-nav-size: var(--font-size-sm);
+  --type-nav-weight: var(--font-weight-bold);
+  --type-nav-spacing: var(--letter-spacing-label);
+  --type-hero-size: var(--font-size-hero);
+  --type-hero-weight: var(--font-weight-bold);
+  --type-section-size: var(--font-size-section-title);
+  --type-section-weight: var(--font-weight-bold);
+  --type-body-size: var(--font-size-base);
+  --type-body-weight: var(--font-weight-regular);
+  --type-button-size: var(--font-size-sm);
+  --type-button-weight: var(--font-weight-bold);
+  --type-button-spacing: var(--letter-spacing-label);
+  --type-label-size: var(--font-size-xs);
+  --type-label-weight: var(--font-weight-bold);
+  --type-label-spacing: var(--letter-spacing-wide);
+
+  /* Layout and interaction */
+  --container-width: 75rem;
+  --container-gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-spacing: clamp(4rem, 8vw, 7.5rem);
+  --section-spacing-sm: clamp(2.75rem, 5vw, 4.5rem);
+  --content-gap: clamp(1.25rem, 3vw, 2.5rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-pill: 999px;
+  --button-height: 3.25rem;
+  --transition-fast: 160ms ease;
+  --transition-base: 240ms ease;
+
+  /* Documented responsive breakpoints */
+  --breakpoint-sm: 36rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 75rem;
+
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-family);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-family);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.75em;
+  color: var(--color-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+}
+
+h1 {
+  font-size: var(--type-hero-size);
+  line-height: var(--line-height-tight);
+}
+
+h2 {
+  font-size: var(--type-section-size);
+}
+
+h3 {
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.875rem);
+}
+
+h4 {
+  font-size: clamp(1.125rem, 1.04rem + 0.35vw, 1.375rem);
+}
+
+h5 {
+  font-size: var(--font-size-md);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+p {
+  margin: 0 0 1.25rem;
+  color: var(--color-text);
+  line-height: var(--line-height-body);
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+section {
+  position: relative;
+  padding-block: var(--section-spacing);
+}
+
+.container {
+  width: min(100% - (2 * var(--container-gutter)), var(--container-width));
+  margin-inline: auto;
+}
+
+/* Navigation and labels */
+.nav-link {
+  color: var(--color-navy);
+  font-size: var(--type-nav-size);
+  font-weight: var(--type-nav-weight);
+  letter-spacing: var(--type-nav-spacing);
+  text-transform: uppercase;
+}
+
+.small-label {
+  color: var(--color-blue);
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-label-spacing);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  min-height: var(--button-height);
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding-inline: 1.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: var(--type-button-size);
+  font-weight: var(--type-button-weight);
+  letter-spacing: var(--type-button-spacing);
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color var(--transition-base), background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.btn-outline-blue {
+  border-color: var(--color-blue);
+  color: var(--color-blue);
+  background: transparent;
+}
+
+.btn-outline-blue:hover {
+  border-color: var(--color-accent-hover);
+  color: var(--color-white);
+  background: var(--color-accent-hover);
+}
+
+.btn-outline-white {
+  border-color: var(--color-white);
+  color: var(--color-white);
+  background: transparent;
+}
+
+.btn-outline-white:hover {
+  color: var(--color-navy);
+  background: var(--color-white);
+}
+
+.btn-blue {
+  border-color: var(--color-blue);
+  color: var(--color-white);
+  background: var(--color-blue);
+}
+
+.btn-blue:hover {
+  border-color: var(--color-accent-hover);
+  color: var(--color-white);
+  background: var(--color-accent-hover);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Utilities */
+.text-navy {
+  color: var(--color-navy) !important;
+}
+
+.text-blue {
+  color: var(--color-blue) !important;
+}
+
+.text-gray {
+  color: var(--color-text) !important;
+}
+
+.text-white {
+  color: var(--color-white) !important;
+}
+
+.bg-white {
+  background-color: var(--color-background) !important;
+}
+
+.bg-light-gray {
+  background-color: var(--color-background-light) !important;
+}
+
+.section-centered {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.image-overlay {
+  position: relative;
+  isolation: isolate;
+}
+
+.image-overlay::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--color-overlay);
+  content: '';
+}
+
+/* Global Animation Classes for FadeInSection */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Align the retained Drupal form with the global system. */
+.dwf {
+  --dwf-font: var(--font-family);
+  --dwf-accent: var(--color-blue);
+  --dwf-accent-hover: var(--color-accent-hover);
+  --dwf-border: var(--color-border);
+  --dwf-border-focus: var(--color-blue);
+  --dwf-btn-bg: var(--color-blue);
+  --dwf-btn-bg-hover: var(--color-accent-hover);
+  --dwf-btn-color: var(--color-white);
+  --dwf-text: var(--color-text);
+  --dwf-text-label: var(--color-heading);
+  --dwf-text-muted: var(--color-text-muted);
+  --dwf-radius: var(--radius-sm);
+  --dwf-radius-btn: var(--radius-pill);
+}
+
+@media (max-width: 47.999rem) {
+  :root {
+    --button-height: 3rem;
+  }
+
+  section {
+    padding-block: var(--section-spacing-sm);
+  }
+
+  .btn {
+    width: 100%;
+    padding-inline: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,36 @@
+@import "../assets/css/global.css";
+@import "tailwindcss";
+
+@theme {
+  --spacing: 0.25rem;
+  --color-brand-primary: #1b2537;
+  --color-brand-accent: #0798c9;
+  --color-border: #e3e3e3;
+  --color-card: #ffffff;
+  --color-card-foreground: #333333;
+}
+
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+
+  @media (width >= 40rem) {
+    max-width: 40rem;
+  }
+
+  @media (width >= 48rem) {
+    max-width: 48rem;
+  }
+
+  @media (width >= 64rem) {
+    max-width: 64rem;
+  }
+
+  @media (width >= 80rem) {
+    max-width: 80rem;
+  }
+
+  @media (width >= 96rem) {
+    max-width: 96rem;
+  }
+}
