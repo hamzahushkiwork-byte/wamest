@@ -419,7 +419,7 @@ const DrupalWebform = ({
 
     load();
     return () => { cancelled = true; };
-  }, [webformId]);
+  }, [webformId, messages, swalProps]);
 
   // ── Derived display list ──────────────────────────────────────────────────
   const displayFields = useMemo(() => {

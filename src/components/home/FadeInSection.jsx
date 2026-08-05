@@ -5,22 +5,23 @@ const FadeInSection = ({ children, className = '', delay = '0s' }) => {
     const domRef = useRef(null);
 
     useEffect(() => {
+        const currentRef = domRef.current;
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         setIsVisible(true);
-                        if (domRef.current) observer.unobserve(domRef.current);
+                        if (currentRef) observer.unobserve(currentRef);
                     }
                 });
             },
             { threshold: 0.15 }
         );
 
-        if (domRef.current) observer.observe(domRef.current);
+        if (currentRef) observer.observe(currentRef);
 
         return () => {
-            if (domRef.current) observer.unobserve(domRef.current);
+            if (currentRef) observer.unobserve(currentRef);
         };
     }, []);
 

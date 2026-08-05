@@ -4,9 +4,13 @@ import { useState, useEffect } from "react";
 import { fetchDrupalContent } from "../api/drupal";
 
 export function useDrupalContent({ contentType, uuid, limit = 10, filters = {}, include = [] }) {
-  const [data,    setData]    = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error,   setError]   = useState(null);
+  const [error, setError] = useState(null);
+
+  // Serialize complex objects for safe dependency tracking to prevent infinite loops
+  const filtersString = JSON.stringify(filters);
+  const includeString = JSON.stringify(include);
 
   useEffect(() => {
     if (!contentType) return;
@@ -21,7 +25,7 @@ export function useDrupalContent({ contentType, uuid, limit = 10, filters = {}, 
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
 
-  }, [contentType, uuid, limit]);
+  }, [contentType, uuid, limit, filtersString, includeString]);
 
   return { data, loading, error };
 }
