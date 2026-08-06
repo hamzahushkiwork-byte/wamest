@@ -22,8 +22,6 @@ const slides = [
   },
 ];
 
-const links = ['Home', 'About Us', 'Services', 'Projects', 'Contact'];
-
 function HeroSlider() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -57,13 +55,6 @@ function HeroSlider() {
           </div>
         ))}
       </div>
-
-      <header className="hero-header container">
-        <a className="hero-brand" href="#top" aria-label="Wamest home">wamest</a>
-        <nav className="hero-nav" aria-label="Main navigation">
-          {links.map((link) => <a key={link} href={`#${link.toLowerCase().replaceAll(' ', '-')}`}>{link}</a>)}
-        </nav>
-      </header>
 
       <div className="hero-slider__content container">
         <div key={active} className="hero-slider__copy">

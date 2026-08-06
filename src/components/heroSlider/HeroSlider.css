@@ -37,69 +37,6 @@
   background: linear-gradient(90deg, rgba(19, 37, 49, 0.72), var(--color-overlay) 55%, rgba(19, 37, 49, 0.25));
 }
 
-.hero-header {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  min-height: 4.5rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  padding: 0 2.5rem;
-  margin-top: 1.5rem;
-  border-radius: 60px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-.hero-brand {
-  color: var(--color-white);
-  font-size: clamp(1.5rem, 2.5vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1;
-}
-
-.hero-brand:hover {
-  color: var(--color-white);
-}
-
-.hero-nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(1.25rem, 2.5vw, 3rem);
-}
-
-.hero-nav a {
-  position: relative;
-  padding-block: 0.5rem;
-  color: var(--color-white);
-  font-size: var(--type-nav-size);
-  font-weight: var(--type-nav-weight);
-  letter-spacing: var(--type-nav-spacing);
-  text-transform: uppercase;
-}
-
-.hero-nav a::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  background: currentColor;
-  content: '';
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-}
-
-.hero-nav a:hover::after {
-  transform: scaleX(1);
-}
-
 .hero-slider__content {
   position: relative;
   z-index: 2;
@@ -208,17 +145,6 @@
 }
 
 @media (max-width: 63.999rem) {
-  .hero-header {
-    min-height: 4rem;
-    padding: 0 1.5rem;
-    margin-top: 1rem;
-    border-radius: 40px;
-  }
-
-  .hero-nav {
-    display: none;
-  }
-
   .hero-slider__content {
     min-height: calc(100vh - 5rem);
   }
@@ -272,4 +198,14 @@
     animation: none;
     transition: opacity 150ms linear;
   }
+}
+
+.hero-slide { filter:saturate(.82); transition:opacity 1.15s cubic-bezier(.4,0,.2,1),transform 7.5s cubic-bezier(.2,.65,.3,1),filter 1.15s ease; }
+.hero-slide.is-active { filter:saturate(1); }
+
+/* Filtering full-screen images is costly during scroll and slide transitions. */
+.hero-slide,
+.hero-slide.is-active {
+  filter:none;
+  transition:opacity .9s ease,transform 7.5s cubic-bezier(.2,.65,.3,1);
 }

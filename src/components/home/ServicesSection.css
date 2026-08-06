@@ -52,6 +52,7 @@
     letter-spacing: -2px;
     display: flex;
     flex-direction: column;
+    color: #fff;
 }
 
 .services-logo-text span {

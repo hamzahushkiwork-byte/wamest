@@ -51,6 +51,8 @@ const ServicesSection = () => {
                         <img
                             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
                             alt="Wamest Integrated Services"
+                            loading="lazy"
+                            decoding="async"
                             className="services-bg-img"
                         />
                         <div className="services-image-overlay">

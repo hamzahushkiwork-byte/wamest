@@ -374,3 +374,32 @@ section {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Performance: keep scroll-time compositing lightweight. */
+.animate-on-scroll,
+.animate-on-scroll.is-visible {
+  filter: none;
+  will-change: auto;
+}
+
+/* Refined motion system */
+.animate-on-scroll {
+  filter: blur(3px);
+  transform: translateY(2.25rem) scale(.985);
+  transition: opacity .85s cubic-bezier(.16, 1, .3, 1), transform .85s cubic-bezier(.16, 1, .3, 1), filter .65s ease;
+  will-change: opacity, transform;
+}
+.animate-on-scroll.is-visible { filter:blur(0); transform:none; }
+.btn:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(14,42,61,.12); }
+.btn:active { transform:translateY(0) scale(.98); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; }
+  .animate-on-scroll, .animate-on-scroll.is-visible { opacity:1; filter:none; transform:none; }
+}
+
+.animate-on-scroll,
+.animate-on-scroll.is-visible {
+  filter:none;
+  will-change:auto;
+}

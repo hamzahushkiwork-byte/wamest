@@ -14,8 +14,12 @@ const PerfectionSection = () => {
                         <a href="#values" className="btn btn-outline-blue">OUR VALUES</a>
                     </div>
                     <div className="perfection-image">
-                        {/* Using a highly relevant abstract 3D cubes placeholder */}
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Abstract 3D Structure" />
+                        <img
+                            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=82"
+                            alt="Professionally managed modern workplace"
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </div>
                 </FadeInSection>
             </div>
