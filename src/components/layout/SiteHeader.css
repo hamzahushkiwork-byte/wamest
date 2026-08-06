@@ -21,7 +21,7 @@
 .site-header__dropdown a:hover, .site-header__dropdown a.active { color: var(--color-blue); background: #f3f8fa; }
 .site-header__toggle { display:none; width:2.75rem; height:2.75rem; padding:0; place-items:center; border:1px solid rgba(255,255,255,.2); border-radius:50%; color:#fff; background:rgba(255,255,255,.08); transition:background-color .2s ease,transform .2s ease; }
 .site-header__toggle:hover { background:rgba(255,255,255,.16); }
-@media (max-width: 48rem) {
+@media (max-width: 64rem) {
   .site-header,.site-header--overlay,.site-header--scrolled { top:.75rem; background:transparent; }
   .site-header .site-header__inner,.site-header--overlay .site-header__inner,.site-header--scrolled .site-header__inner { min-height:4rem; padding:0 1.1rem 0 1.4rem; border:1px solid rgba(255,255,255,.15); border-radius:2rem; background:rgba(22,34,53,.94); box-shadow:0 10px 32px rgba(7,18,31,.22); backdrop-filter:blur(16px); }
   .site-header__brand { font-size:1.35rem; }
